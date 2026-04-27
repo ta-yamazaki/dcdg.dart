@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:dcdg/src/builders/diagram_builder.dart';
+import 'package:dcdg_dart3/src/builders/diagram_builder.dart';
 
 class DotBuilder implements DiagramBuilder {
   String? _currentClass;

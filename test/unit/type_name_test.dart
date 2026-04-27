@@ -1,6 +1,6 @@
 import 'package:test/test.dart';
 
-import 'package:dcdg/src/type_name.dart';
+import 'package:dcdg_dart3/src/type_name.dart';
 
 import 'fakes.dart';
 

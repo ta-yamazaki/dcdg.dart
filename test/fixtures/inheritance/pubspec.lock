@@ -57,13 +57,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.7"
-  dcdg:
+  dcdg_dart3:
     dependency: "direct dev"
     description:
       path: "../../.."
       relative: true
     source: path
-    version: "4.1.0"
+    version: "1.0.0"
   file:
     dependency: transitive
     description:

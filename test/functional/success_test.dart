@@ -1,4 +1,4 @@
-import 'package:dcdg/src/constants.dart';
+import 'package:dcdg_dart3/src/constants.dart';
 import 'package:test/test.dart';
 
 import 'utils.dart';

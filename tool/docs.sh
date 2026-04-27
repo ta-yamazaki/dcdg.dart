@@ -7,8 +7,8 @@ awk '/version: / {print "const version = " "'\''" $2 "'\''" ";"}' pubspec.yaml >
 
 # Generate example outputs
 dart pub get
-dart run dcdg -o example/dcdg.puml --exclude-private=field,method
+dart run dcdg_dart3 -o example/dcdg.puml --exclude-private=field,method
 plantuml example/dcdg.puml
 
 # Add the --help contents to a text file
-dart run dcdg --help > USAGE.txt
+dart run dcdg_dart3 --help > USAGE.txt

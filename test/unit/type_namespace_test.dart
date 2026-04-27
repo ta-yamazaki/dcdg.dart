@@ -1,5 +1,5 @@
-import 'package:dcdg/src/constants.dart';
-import 'package:dcdg/src/type_namespace.dart';
+import 'package:dcdg_dart3/src/constants.dart';
+import 'package:dcdg_dart3/src/type_namespace.dart';
 import 'package:test/test.dart';
 
 import 'fakes.dart';

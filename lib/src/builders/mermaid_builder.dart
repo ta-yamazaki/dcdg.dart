@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:dcdg/src/builders/diagram_builder.dart';
-import 'package:dcdg/src/type_name.dart';
+import 'package:dcdg_dart3/src/builders/diagram_builder.dart';
+import 'package:dcdg_dart3/src/type_name.dart';
 
 /*
 TODO: Build the diagrams in the functional tests to verify that

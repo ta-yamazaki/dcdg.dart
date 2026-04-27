@@ -3,5 +3,5 @@ description: A simple test fixture
 environment:
   sdk: '>=3.0.0 <4.0.0'
 dev_dependencies:
-  dcdg:
+  dcdg_dart3:
     path: ../../../

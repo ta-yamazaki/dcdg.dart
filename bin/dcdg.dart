@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:dcdg/dcdg.dart';
-import 'package:dcdg/src/command_line.dart';
+import 'package:dcdg_dart3/dcdg.dart';
+import 'package:dcdg_dart3/src/command_line.dart';
 import 'package:path/path.dart' as path;
 
 Future<Null> main(Iterable<String> arguments) async {

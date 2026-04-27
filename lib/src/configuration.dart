@@ -1,7 +1,7 @@
 import 'package:args/args.dart';
-import 'package:dcdg/src/builder_factories.dart';
-import 'package:dcdg/src/builders/diagram_builder.dart';
-import 'package:dcdg/src/command_line.dart';
+import 'package:dcdg_dart3/src/builder_factories.dart';
+import 'package:dcdg_dart3/src/builders/diagram_builder.dart';
+import 'package:dcdg_dart3/src/command_line.dart';
 
 /// A full configuration to allow fetching classes and running
 /// a builder against a Dart package.

@@ -1,8 +1,8 @@
-import 'package:dcdg/src/builders/dot_builder.dart';
-import 'package:dcdg/src/builders/mermaid_builder.dart';
-import 'package:dcdg/src/builders/nomnoml_builder.dart';
-import 'package:dcdg/src/builders/plant_uml_builder.dart';
-import 'package:dcdg/src/builders/diagram_builder.dart';
+import 'package:dcdg_dart3/src/builders/dot_builder.dart';
+import 'package:dcdg_dart3/src/builders/mermaid_builder.dart';
+import 'package:dcdg_dart3/src/builders/nomnoml_builder.dart';
+import 'package:dcdg_dart3/src/builders/plant_uml_builder.dart';
+import 'package:dcdg_dart3/src/builders/diagram_builder.dart';
 
 /// A collection of available builders parameterized in different ways
 /// for different use-cases.

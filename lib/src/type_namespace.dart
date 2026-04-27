@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:dcdg/src/constants.dart';
+import 'package:dcdg_dart3/src/constants.dart';
 
 /// Build a namespace for the given element based on the definition
 /// of its type.

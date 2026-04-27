@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:analyzer/dart/analysis/analysis_context_collection.dart';
 import 'package:analyzer/dart/analysis/results.dart';
 import 'package:analyzer/dart/element/element.dart';
-import 'package:dcdg/src/class_element_collector.dart';
+import 'package:dcdg_dart3/src/class_element_collector.dart';
 import 'package:path/path.dart' as path;
 
 /// Fetch and return the desired class elements from the package

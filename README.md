@@ -18,7 +18,7 @@ the PlantUML source in the `example/` directory.
 
 **Install from pub:**
 
-`dart pub global activate dcdg`
+`dart pub global activate dcdg_dart3`
 
 **Install from clone:**
 
@@ -28,7 +28,7 @@ the PlantUML source in the `example/` directory.
 
 From inside a Dart package directory:
 
-`dart pub global run dcdg`
+`dart pub global run dcdg_dart3`
 
 This will dump a PlantUML file to stdout. You can save it to a file
 instead with the `-o` option.
@@ -36,7 +36,7 @@ instead with the `-o` option.
 If you'd like to create a Mermaid file instead, pass the `-b` option
 with `mermaid` as its argument:
 
-`dart pub global run dcdg -b mermaid`
+`dart pub global run dcdg_dart3 -b mermaid`
 
 See `--help` for more options, including ways to filter what ends up
 in the output. You can find the help contents in [USAGE.txt](USAGE.txt)

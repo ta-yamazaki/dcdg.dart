@@ -1,6 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:dcdg/src/builders/diagram_builder.dart';
-import 'package:dcdg/src/diagram_visitor.dart';
+import 'package:dcdg_dart3/src/builders/diagram_builder.dart';
+import 'package:dcdg_dart3/src/diagram_visitor.dart';
 
 /// Build a diagram using the given builder from the given class
 /// elements.

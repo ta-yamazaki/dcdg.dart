@@ -1,6 +1,6 @@
 import 'package:args/args.dart';
-import 'package:dcdg/src/builder_factories.dart';
-import 'package:dcdg/src/version.dart';
+import 'package:dcdg_dart3/src/builder_factories.dart';
+import 'package:dcdg_dart3/src/version.dart';
 
 const builderOption = 'builder';
 const excludeOption = 'exclude';
@@ -118,7 +118,7 @@ final argParser = ArgParser(usageLineLength: 80)
 /// based on the arguments defined and the available builders.
 String makeHelp() {
   final usage = argParser.usage;
-  return '''Usage: dcdg [options]
+  return '''Usage: dcdg_dart3 [options]
 
 $usage
 
@@ -136,5 +136,5 @@ includes list will be applied as usual.''';
 
 /// Return the version string we show on --version.
 String makeVersion() {
-  return 'dcdg $version';
+  return 'dcdg_dart3 $version';
 }

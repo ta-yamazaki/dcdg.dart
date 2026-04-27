@@ -6,5 +6,5 @@ dependencies:
   simple_fixture:
     path: ../simple/
 dev_dependencies:
-  dcdg:
+  dcdg_dart3:
     path: ../../../

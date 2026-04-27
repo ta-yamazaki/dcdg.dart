@@ -55,7 +55,7 @@ ProcessResult runWith(Iterable<String> arguments, String against) =>
         'run',
         '--verbosity',
         'all',
-        'dcdg',
+        'dcdg_dart3',
         ...arguments,
       ],
       workingDirectory: against,
