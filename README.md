@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/glesica/dcdg.dart.svg?branch=master)](https://travis-ci.org/glesica/dcdg.dart)
 
-*This is a fork of glesica/dcdg.dart with updated dependencies for analyzer 7.x.*
+*This is a fork of [glesica/dcdg.dart](https://github.com/glesica/dcdg.dart) with updated dependencies for analyzer 7.x.*
 
 # Dart Class Diagram Generator
 
