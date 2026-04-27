@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:dcdg_dart3/dcdg.dart';
+import 'package:dcdg_dart3/dcdg_dart3.dart';
 import 'package:dcdg_dart3/src/command_line.dart';
 import 'package:path/path.dart' as path;
 
