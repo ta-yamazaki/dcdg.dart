@@ -45,7 +45,7 @@ class PlantUmlBuilder implements DiagramBuilder {
     final visibilityPrefix = getVisibility(element);
     final staticPrefix = element.isStatic ? '{static} ' : '';
     final name = element.name;
-    final type = element.returnType.getDisplayString(withNullability: true);
+    final type = element.returnType.getDisplayString();
     _lines.add('  $staticPrefix$visibilityPrefix$type $name()');
   }
 
@@ -100,7 +100,7 @@ class PlantUmlBuilder implements DiagramBuilder {
   static String getVisibility(Element element) {
     return element.isPrivate
         ? '-'
-        : element.hasProtected
+        : element.metadata.hasProtected
             ? '#'
             : '+';
   }

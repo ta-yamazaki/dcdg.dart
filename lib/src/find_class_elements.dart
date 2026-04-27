@@ -36,7 +36,9 @@ Future<Iterable<ClassElement>> findClassElements({
   final dartFiles = Directory(makePackageSubPath(searchPath))
       .listSync(recursive: true)
       .where((file) => path.extension(file.path) == '.dart')
-      .where((file) => !exportedOnly || !file.path.contains('lib/src/'));
+      .where((file) =>
+          !exportedOnly ||
+          !file.path.contains(path.join('lib', 'src') + path.separator));
 
   final collector = ClassElementCollector(
     exportedOnly: exportedOnly,

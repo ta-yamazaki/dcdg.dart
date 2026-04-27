@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
-import 'package:analyzer/dart/element/visitor.dart';
+import 'package:analyzer/dart/element/visitor2.dart';
 
 import 'type_name.dart';
 import 'type_namespace.dart';
@@ -13,7 +13,7 @@ typedef OnTypeHandler<T extends DartType> = void Function(T element);
 
 void _noopHandler(_) {}
 
-class DiagramVisitor extends RecursiveElementVisitor<void> {
+class DiagramVisitor extends RecursiveElementVisitor2<void> {
   final bool _excludeHasA;
 
   final bool _excludeIsA;
@@ -108,7 +108,7 @@ class DiagramVisitor extends RecursiveElementVisitor<void> {
   bool isA(ClassElement element) {
     var current = element.thisType;
     while (true) {
-      if (_isA.any((r) => r.hasMatch(current.element.name))) {
+      if (_isA.any((r) => r.hasMatch(current.element.name ?? ''))) {
         return true;
       }
 
@@ -121,11 +121,11 @@ class DiagramVisitor extends RecursiveElementVisitor<void> {
     }
 
     for (final needle in _isA) {
-      if (element.interfaces.any((i) => needle.hasMatch(i.element.name))) {
+      if (element.interfaces.any((i) => needle.hasMatch(i.element.name ?? ''))) {
         return true;
       }
 
-      if (element.mixins.any((m) => needle.hasMatch(m.element.name))) {
+      if (element.mixins.any((m) => needle.hasMatch(m.element.name ?? ''))) {
         return true;
       }
     }
@@ -291,8 +291,8 @@ class DiagramVisitor extends RecursiveElementVisitor<void> {
       if (type.isDartAsyncFuture ||
           type.isDartAsyncFutureOr ||
           type.isDartCoreObject ||
-          type.isDynamic ||
-          type.isVoid) {
+          type is DynamicType ||
+          type is VoidType) {
         return;
       }
 

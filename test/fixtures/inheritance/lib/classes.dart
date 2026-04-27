@@ -2,7 +2,7 @@ import 'package:simple_fixture/external.dart';
 
 abstract class Extended {}
 
-abstract class MixedIn {}
+abstract mixin class MixedIn {}
 
 abstract class Implemented {}
 

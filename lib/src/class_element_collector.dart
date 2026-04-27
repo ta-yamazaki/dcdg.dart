@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/element/element.dart';
-import 'package:analyzer/dart/element/visitor.dart';
+import 'package:analyzer/dart/element/visitor2.dart';
 
 /// A visitor that collects all class elements defined within
 /// a particular library.
@@ -8,7 +8,7 @@ import 'package:analyzer/dart/element/visitor.dart';
 /// are exported from the library. This means that they are public,
 /// and are either not subject to any `show` or `hide` clause, are
 /// included in a `show` clause, or are not included in a `hide` clause.
-class ClassElementCollector extends RecursiveElementVisitor<void> {
+class ClassElementCollector extends RecursiveElementVisitor2<void> {
   final List<ClassElement> _classElements = [];
 
   final bool _exportOnly;
@@ -25,41 +25,45 @@ class ClassElementCollector extends RecursiveElementVisitor<void> {
   }
 
   @override
-  void visitExportElement(ExportElement element) {
+  void visitLibraryElement(LibraryElement element) {
+    element.visitChildren(this);
+
     if (!_exportOnly) {
       return;
     }
 
-    final _hiddenNames = <String>{};
-    final _shownNames = <String>{};
+    for (final export in element.firstFragment.libraryExports) {
+      final hiddenNames = <String>{};
+      final shownNames = <String>{};
 
-    for (final combinator in element.combinators) {
-      if (combinator is HideElementCombinator) {
-        _hiddenNames.addAll(combinator.hiddenNames);
+      for (final combinator in export.combinators) {
+        if (combinator is HideElementCombinator) {
+          hiddenNames.addAll(combinator.hiddenNames);
+        }
+
+        if (combinator is ShowElementCombinator) {
+          shownNames.addAll(combinator.shownNames);
+        }
       }
 
-      if (combinator is ShowElementCombinator) {
-        _shownNames.addAll(combinator.shownNames);
+      final collector = ClassElementCollector(
+        exportedOnly: _exportOnly,
+      );
+      export.exportedLibrary?.accept(collector);
+
+      bool shouldInclude(ClassElement element) {
+        if (shownNames.isEmpty && hiddenNames.isEmpty) {
+          return true;
+        }
+
+        final shouldShow =
+            shownNames.isNotEmpty && shownNames.contains(element.name);
+        final shouldHide =
+            hiddenNames.isNotEmpty && hiddenNames.contains(element.name);
+        return _exportOnly ? (shouldShow && !shouldHide) : true;
       }
+
+      collector.classElements.where(shouldInclude).forEach(visitClassElement);
     }
-
-    final collector = ClassElementCollector(
-      exportedOnly: _exportOnly,
-    );
-    element.exportedLibrary?.accept(collector);
-
-    bool shouldInclude(ClassElement element) {
-      if (_shownNames.isEmpty && _hiddenNames.isEmpty) {
-        return true;
-      }
-
-      final shouldShow =
-          _shownNames.isNotEmpty && _shownNames.contains(element.name);
-      final shouldHide =
-          _hiddenNames.isNotEmpty && _hiddenNames.contains(element.name);
-      return _exportOnly ? (shouldShow && !shouldHide) : true;
-    }
-
-    collector.classElements.where(shouldInclude).forEach(visitClassElement);
   }
 }

@@ -14,7 +14,7 @@ String typeName(
   // little extra work to get the type.
   String name;
   if (element is FieldElement) {
-    name = element.type.getDisplayString(withNullability: withNullability);
+    name = element.type.getDisplayString();
   } else {
     name = element.displayName;
   }

@@ -45,12 +45,7 @@ void main() {
       final namespace = typeNamespace(element, separator: '.');
       expect(
         namespace,
-        [
-              'dart',
-              'core',
-              'entry.dart',
-            ].join('.') +
-            '.',
+        'dart.core.entry.dart.',
       );
     });
 

@@ -55,7 +55,7 @@ class MermaidBuilder implements DiagramBuilder {
     final staticSuffix = element.isStatic ? '\$' : '';
     final abstractSuffix = element.isAbstract ? '*' : '';
     final name = element.name;
-    final type = element.returnType.getDisplayString(withNullability: true);
+    final type = element.returnType.getDisplayString();
     _lines.add(
         '$_currentClass : $visibilityPrefix$name()$staticSuffix$abstractSuffix $type');
   }
@@ -81,9 +81,6 @@ class MermaidBuilder implements DiagramBuilder {
     if (element.isAbstract) {
       _lines.add('<<abstract>> $_currentClass');
     }
-    if (element.isEnum) {
-      _lines.add('<<enumeration>> $_currentClass');
-    }
   }
 
   @override
@@ -104,12 +101,12 @@ class MermaidBuilder implements DiagramBuilder {
   }
 
   static String namespacedTypeName(Element element) =>
-      '${typeName(element, withNullability: false, leftBracket: '~', rightBracket: '~', stripParens: true)}';
+      typeName(element, withNullability: false, leftBracket: '~', rightBracket: '~', stripParens: true);
 
   static String getVisibility(Element element) {
     return element.isPrivate
         ? '-'
-        : element.hasProtected
+        : element.metadata.hasProtected
             ? '#'
             : '+';
   }

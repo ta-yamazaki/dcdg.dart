@@ -19,7 +19,7 @@ class NomnomlBuilder implements DiagramBuilder {
   @override
   void addAggregation(FieldElement element) {
     final typeElement = element.type.element;
-    if (typeElement is ClassElement) {
+    if (typeElement is InterfaceElement) {
       final name = fullClassName(typeElement);
       _relationships.add('[$_currentClass]o-[$name]');
     } else {
@@ -106,14 +106,14 @@ class NomnomlBuilder implements DiagramBuilder {
       final visibilityPrefix = getVisibility(element);
       final staticPrefix = element.isStatic ? '<static>' : '';
       final methodName = element.name;
-      final methodType =
-          element.returnType.getDisplayString(withNullability: true);
+      final methodType = element.returnType.getDisplayString();
       return '  $staticPrefix$visibilityPrefix$methodType $methodName()';
     }).join(';\n'));
   }
 
-  String fullClassName(ClassElement element) {
-    final abstractModifier = element.isAbstract ? '<abstract>' : '';
+  String fullClassName(InterfaceElement element) {
+    final abstractModifier =
+        (element is ClassElement && element.isAbstract) ? '<abstract>' : '';
     final className = typeName(element, withNullability: false);
     return '$abstractModifier$className';
   }
@@ -121,7 +121,7 @@ class NomnomlBuilder implements DiagramBuilder {
   String getVisibility(Element element) {
     return element.isPrivate
         ? '-'
-        : element.hasProtected
+        : element.metadata.hasProtected
             ? '#'
             : '+';
   }
