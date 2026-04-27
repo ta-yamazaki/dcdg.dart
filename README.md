@@ -1,5 +1,7 @@
 [![Build Status](https://travis-ci.org/glesica/dcdg.dart.svg?branch=master)](https://travis-ci.org/glesica/dcdg.dart)
 
+*This is a fork of glesica/dcdg.dart with updated dependencies for analyzer 7.x.*
+
 # Dart Class Diagram Generator
 
 A small command line utility to generate a class (UML or similar) diagram from a
